@@ -1,0 +1,23 @@
+{
+  "name": "google-contact-list",
+  "version": "1.0.0",
+  "description": "Teste de estágio - Conecta Nuvem",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thaisnorberlandi/google-contact-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thaisnorberlandi/google-contact-list/issues"
+  },
+  "homepage": "https://github.com/thaisnorberlandi/google-contact-list#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
