@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus contatos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Contatos</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="" id="clAddNewEntry">Criar contato</a>
+                <a class="mdl-navigation__link" href="">Contatos frequentes</a>
+                <a class="mdl-navigation__link" href="">Importar</a>
+                <a class="mdl-navigation__link" href="">Exportar</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cl-table-container">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="mdl-data-table__cell--non-numeric">Título</th>
+                            <th>E-mail</th>
+                            <th>Número de telefone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="" alt="" width="24" height="24"></td>
+                            <td class="mdl-data-table__cell--non-numeric">Bill Gates</td>
+                            <td>billgates@microsoft.com</td>
+                            <td>+1 (671) 1239-9876</td>
+                            <td><i class="material-icons md-18">
+                                edit
+                            </i></td>
+                            <td><i class="material-icons md-18">
+                                delete
+                            </i></td>
+                        </tr>
+                        <tr>
+                            <td><img src="" alt="" width="24" height="24"></td>
+                            <td class="mdl-data-table__cell--non-numeric">Steve Jobs</td>
+                            <td>stevejobs@apple.com</td>
+                            <td>+1 (567) 2345-7603</td>
+                            <td><i class="material-icons md-18">
+                                edit
+                            </i></td>
+                            <td><i class="material-icons md-18">
+                                delete
+                            </i></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><img src="" alt="" width="24" height="24"></td>
+                            <td class="mdl-data-table__cell--non-numeric">Tim Cook</td>
+                            <td>timcook@apple.com</td>
+                            <td>+1 (782) 9234-2341</td>
+                            <td><i class="material-icons md-18">
+                                edit
+                            </i></td>
+                            <td><i class="material-icons md-18">
+                                delete
+                            </i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <div class="disable-modal" id="backdrop"></div>
+        <div class="disable-modal" id="newPersonModal">
+
+
+            
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="script.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    </div>
+</body>
+
+</html>
