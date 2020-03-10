@@ -12,17 +12,10 @@ html{
 
 .cl-table-container {
     width: 100%;
+    cursor: pointer;
 }
 
-.cl-edit, .cl-delete {
-    cursor: pointer; 
-}
-
-.cl-delete {
-    text-align: left;
-}
-
-#newPersonModal {
+.new-person-modal {
     width: 31rem;
     padding: 1rem 1.5rem;
     z-index: 99;
@@ -31,4 +24,7 @@ html{
     margin-left: calc(50% - 15rem);
     background-color: #FFFFFF;
     border-radius: 10px;
+    border: 1px solid gray;
+    box-shadow: 3px 3px gray;
 }
+

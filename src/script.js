@@ -1,6 +1,7 @@
 var app = new Vue ({
     el: '#app',
     data: {
+        title:'Contatos',
         contactModal: false,
         contact_name: null,
         contact_email: null,
@@ -9,7 +10,7 @@ var app = new Vue ({
         },
     methods: {
         addContact () {
-            if (this.name != null && this.email != null && this.phone != null) {
+            if (this.contact_name != null && this.contact_email != null && this.contact_phone != null) {
                 this.contacts.push ({
                     name: this.contact_name,
                     email: this.contact_email,

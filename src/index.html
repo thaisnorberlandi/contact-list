@@ -34,7 +34,7 @@
 
             <!-- Page navbar -->
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Contatos</span>
+                <span class="mdl-layout-title">{{title}}</span>
                 <nav class="mdl-navigation">
                     <a @click="contactModal = !contactModal" class="mdl-navigation__link" href="#">Criar novo contato</a>
                     <a class="mdl-navigation__link" href="#">Contatos frequentes</a>
@@ -44,7 +44,7 @@
             </div>
 
             <!-- Modal card to add new contact -->
-            <div v-if="contactModal" class="" id="newPersonModal">
+            <div v-if="contactModal" class="new-person-modal">
                 <h5>Novo contato</h5>
                 <hr>
                 <form action="#">
@@ -63,7 +63,7 @@
                     <br />
                     <button @click="contactModal = !contactModal"
                         class="mdl-button mdl-js-button mdl-button--primary">Cancelar</button>
-                    <button @click:="addContact()" value="Submit" class="mdl-button mdl-js-button mdl-button--primary">Salvar</button>
+                    <button @click:="addContact()" @click="contactModal = !contactModal" value="Submit" class="mdl-button mdl-js-button mdl-button--primary">Salvar</button>
 
                 </form>
             </div>
@@ -74,7 +74,6 @@
                     <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cl-table-container">
                         <thead>
                             <tr>
-                               
                                 <th class="mdl-data-table__cell--non-numeric">Nome</th>
                                 <th>E-mail</th>
                                 <th>Número de telefone</th>
@@ -88,7 +87,11 @@
                                 <td><button class="mdl-button mdl-js-button mdl-js-ripple-effect" value="Delete" @click="deleteContact">
                                     Apagar
                                   </button></td>
+                            
                             </tr>
+                
+                        
+
                         </tbody>
                     </table>
                 </div>
