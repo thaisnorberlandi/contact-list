@@ -6,132 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus contatos</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Material Design Lite CDNs links-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 </head>
 
 <body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-            mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <div class="mdl-layout-spacer"></div>
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <div class="mdl-textfield__expandable-holder">
-                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+    <div id="app">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+            <!-- Page header -->
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right">
+                        <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                            <i class="material-icons">search</i>
+                        </label>
+                        <div class="mdl-textfield__expandable-holder">
+                            <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                        </div>
                     </div>
                 </div>
+            </header>
+
+            <!-- Page navbar -->
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Contatos</span>
+                <nav class="mdl-navigation">
+                    <a @click="contactModal = !contactModal" class="mdl-navigation__link" href="#">Criar novo contato</a>
+                    <a class="mdl-navigation__link" href="#">Contatos frequentes</a>
+                    <a class="mdl-navigation__link" href="#">Importar</a>
+                    <a class="mdl-navigation__link" href="#">Exportar</a>
+                </nav>
             </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Contatos</span>
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="" id="clAddNewEntry">Criar contato</a>
-                <a class="mdl-navigation__link" href="">Contatos frequentes</a>
-                <a class="mdl-navigation__link" href="">Importar</a>
-                <a class="mdl-navigation__link" href="">Exportar</a>
-            </nav>
-        </div>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cl-table-container">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="mdl-data-table__cell--non-numeric">Título</th>
-                            <th>E-mail</th>
-                            <th>Número de telefone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="" alt="" width="24" height="24"></td>
-                            <td class="mdl-data-table__cell--non-numeric">Bill Gates</td>
-                            <td>billgates@microsoft.com</td>
-                            <td>+1 (671) 1239-9876</td>
-                            <td><i class="material-icons md-18 cl-edit">
-                                edit
-                            </i></td>
-                            <td><i class="material-icons md-18 cl-delete">
-                                delete
-                            </i></td>
-                        </tr>
-                        <tr>
-                            <td><img src="" alt="" width="24" height="24"></td>
-                            <td class="mdl-data-table__cell--non-numeric">Steve Jobs</td>
-                            <td>stevejobs@apple.com</td>
-                            <td>+1 (567) 2345-7603</td>
-                            <td><i class="material-icons md-18 cl-edit">
-                                edit
-                            </i></td>
-                            <td><i class="material-icons md-18 cl-delete">
-                                delete
-                            </i></td>
-                            
-                        </tr>
-                        <tr>
-                            <td><img src="" alt="" width="24" height="24"></td>
-                            <td class="mdl-data-table__cell--non-numeric">Tim Cook</td>
-                            <td>timcook@apple.com</td>
-                            <td>+1 (782) 9234-2341</td>
-                            <td><i class="material-icons md-18 cl-edit">
-                                edit
-                            </i></td>
-                            <td><i class="material-icons md-18 cl-delete">
-                                delete
-                            </i></td>
-                        </tr>
-                    </tbody>
-                </table>
+
+            <!-- Modal card to add new contact -->
+            <div v-if="contactModal" class="" id="newPersonModal">
+                <h5>Novo contato</h5>
+                <hr>
+                <form action="#">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input v-model="contact_name" class="mdl-textfield__input" type="text" placeholder="Nome">
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input v-model="contact_email" class="mdl-textfield__input" type="text" placeholder="E-mail">
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input v-model="contact_phone" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" placeholder="Telefone">
+                        <span class="mdl-textfield__error">Input is not a number!</span>
+                    </div>
+                    <br />
+                    <button @click="contactModal = !contactModal"
+                        class="mdl-button mdl-js-button mdl-button--primary">Cancelar</button>
+                    <button @click:="addContact()" value="Submit" class="mdl-button mdl-js-button mdl-button--primary">Salvar</button>
+
+                </form>
             </div>
-        </main>
 
-        <div class="disable-modal" id="backdrop"></div>
-        <div class="disable-modal" id="newPersonModal">
-            <h5>Criar novo contato</h5>
-            <hr>
-            <form action="#">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="newPersonName">
-                  <label class="mdl-textfield__label" for="newPersonName">Nome</label>
+            <!-- Contact list -->
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp cl-table-container">
+                        <thead>
+                            <tr>
+                               
+                                <th class="mdl-data-table__cell--non-numeric">Nome</th>
+                                <th>E-mail</th>
+                                <th>Número de telefone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(contact,index) in contacts">
+                                <td class="mdl-data-table__cell--non-numeric">{{ contact.name }}</td>
+                                <td>{{ contact.email }}</td>
+                                <td>{{ contact.phone }}</td>
+                                <td><button class="mdl-button mdl-js-button mdl-js-ripple-effect" value="Delete" @click="deleteContact">
+                                    Apagar
+                                  </button></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-              </form>
-
-              <form action="#">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" id="newPersonEmail">
-                  <label class="mdl-textfield__label" for="newPersonEmail">E-mail</label>
-                </div>
-              </form>
-              
-              <form action="#">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="newPersonPhone">
-                  <label class="mdl-textfield__label" for="newPersonPhone">Telefone</label>
-                  <span class="mdl-textfield__error">Input is not a number!</span>
-                </div>
-              </form>
-
-            <button id="newPersonCancelBtn" class="mdl-button mdl-js-button mdl-button--primary">Cancelar</button>
-            <button id="newPersonSubmitBtn" class="mdl-button mdl-js-button mdl-button--primary">Salvar</button>
+            </main>
         </div>
-
     </div>
 
-
-
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="script.js"></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-
-    </div>
 </body>
 
 </html>
